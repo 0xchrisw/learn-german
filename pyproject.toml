@@ -1,0 +1,86 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = [
+  "hatchling >= 1.11.0",
+  "pip >= 22.0.0"
+]
+
+
+[project.scripts]
+learn-german = "speaknseek.cli:main"
+
+
+[project]
+name            = "learn-german"
+version         = "0.0.1"
+description     = "Just goofin'"
+readme          = "README.md"
+license         = "MIT"
+requires-python = ">=3.8"
+
+authors = [
+  { name = "Christopher Woodall", email = "woodall.christopher@gmail.com" },
+]
+
+keywords = [
+  "audio",
+]
+
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Environment :: Web Environment",
+  "Framework :: Hatch",
+  "Intended Audience :: Developers",
+  "Intended Audience :: End Users/Desktop",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+  "speechrecognition",
+  "openai",
+  "gtts",
+  "pyaudio",
+  "pydub",
+  "ffmpeg",
+  "pyttsx3",
+]
+
+
+[project.optional-dependencies]
+developer = [
+  "hatch",
+  "wheel",
+  "black",
+  "ipdb",
+  "mypy",
+  "ruff",
+  "types-Flask-Cors",
+  "types-Pillow",
+  "types-requests",
+]
+
+
+
+[tool.hatch.build]
+ignore-vcs   = false
+reproducible = true
+directory    = "dist"
+# sources      = [ "lib" ]
+include = [
+  "speaknseek",
+  "pyproject.toml",
+  "README.md"
+]
+exclude = [ ]
+
+
+[tool.hatch.metadata]
+allow-direct-references = true
